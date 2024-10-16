@@ -10,18 +10,10 @@ Route::get('/jobs', function () {
     return "<h1>Available Jobs<h1>";
 })->name("jobs");
 
-Route::any("/submit", function () {
-    return "Submitted";
-});
+Route::get("/posts/{id}", function (string $id) {
+    return "Post" . " " . $id;
+})->whereNumber("id");
 
-Route::get("/test", function () {
-    $url = route("jobs");
-    return "<a href='$url'>Click Here</a>";
-});
-
-Route::get("/api/users", function () {
-    return [
-        "name" => "John Doe",
-        "email" => "doe@gmail.com"
-    ];
+Route::get("/posts/{id}/comments/{commentId}", function (string $commentId, string $id) {
+    return "Post" . " " . $id . "Comment No. " . $commentId;
 });
