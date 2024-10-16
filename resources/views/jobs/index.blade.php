@@ -11,19 +11,7 @@
     <h1>{{ $title }}</h1>
     <ul>
         @forelse ($jobs as $job)
-            {{-- @if ($job == 'Database Admin')
-                @break
-                @continue
-            @endif --}}
-            @if ($loop->first)
-                <li>
-                    {{-- {{ $loop->count }} --}}
-                    First:
-                    {{ $job }}
-                </li>
-            @else
-                <li>Other: {{ $job }}</li>
-            @endif
+            <li>{{ $job }}</li>
         @empty
             <li>No Jobs Available</li>
         @endforelse
