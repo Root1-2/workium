@@ -1,5 +1,4 @@
-@extends('layout')
-
-@section('content')
+<x-layout>
+    <x-slot name="title">View Job</x-slot>
     <h1>Show Job {{ $id }}</h1>
-@endsection
+</x-layout>
