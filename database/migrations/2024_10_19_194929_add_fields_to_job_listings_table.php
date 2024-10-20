@@ -33,7 +33,7 @@ return new class extends Migration
             $table->string("company_name");
             $table->string("company_phone");
             $table->text("company_description");
-            $table->string("website")->nullable();
+            $table->string("company_website")->nullable();
             $table->string("company_logo")->nullable();
 
             // Add user foreign key contraint
