@@ -9,6 +9,7 @@
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     @vite('resources/css/app.css')
+    <script src="//unpkg.com/alpinejs" defer></script>
     <title>{{ $title ?? 'Workium | Find/List Jobs' }}</title>
 </head>
 
@@ -19,6 +20,13 @@
         <x-top-banner />
     @endif
     <main class="container mx-auto p-4 mt-4">
+        {{-- Displaying Alert Messages --}}
+        @if (session('success'))
+            <x-alert type="success" message="{{ session('success') }}" />
+        @endif
+        @if (session('error'))
+            <x-alert type="error" message="{{ session('error') }}" />
+        @endif
         {{ $slot }}
     </main>
 
