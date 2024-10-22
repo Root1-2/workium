@@ -58,8 +58,8 @@
             <div class="mb-4">
                 <label class="block text-gray-700" for="remote">Remote</label>
                 <select id="remote" name="remote" class="w-full px-4 py-2 border rounded focus:outline-none">
-                    <option value="false">No</option>
-                    <option value="true">Yes</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
                 </select>
             </div>
 
@@ -90,7 +90,7 @@
             <x-inputs.text id="contact_phone" name="contact_phone" label="Contact Phone"
                 placeholder="Enter Contact Phone" />
 
-            <x-inputs.text id="email" name="title" type="email" label="Email"
+            <x-inputs.text id="contact_email" name="contact_email" type="email" label="Contact Email"
                 placeholder="Enter Email Address" />
 
             <div class="mb-4">

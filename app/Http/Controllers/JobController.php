@@ -60,6 +60,7 @@ class JobController extends Controller
         return redirect()->route("jobs.index")->with("success", "Job listing created successfully");
     }
 
+
     /**
      * Display the specified resource.
      */
