@@ -67,7 +67,7 @@
         <aside class="bg-white rounded-lg shadow-md p-3">
             <h3 class="text-xl text-center mb-4 font-bold">Company Info</h3>
             @if ($job->company_logo)
-                <img src="/images/{{ $job->company_logo }}" alt="Ad" class="w-full rounded-lg mb-4 m-auto" />
+                <img src="/storage/{{ $job->company_logo }}" alt="Ad" class="w-full rounded-lg mb-4 m-auto" />
             @endif
             <h4 class="text-lg font-bold">{{ $job->company_name }}</h4>
             @if ($job->company_descriptionn)
