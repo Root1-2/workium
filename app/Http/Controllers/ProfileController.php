@@ -39,6 +39,6 @@ class ProfileController extends Controller
         // Update User Info
         $user->save();
 
-        return redirect()->route("dashboard")->with("Success", "Profile Info Updated");
+        return redirect()->route("dashboard")->with("success", "Profile Info Updated");
     }
 }
