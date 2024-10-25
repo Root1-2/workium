@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\BookmarkController;
 
 Route::get('/', [HomeController::class, "index"])->name("home");
 
@@ -20,6 +21,10 @@ Route::middleware("guest")->group(function () {
 
     Route::get("/login", [LoginController::class, "login"])->name("login")->middleware("guest");
     Route::post("/login", [LoginController::class, "authenticate"])->name("login.authenticate");
+});
+
+Route::middleware("auth")->group(function () {
+    Route::get("bookmarks", [BookmarkController::class, "index"])->name("bookmarks.index");
 });
 
 
