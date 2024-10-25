@@ -46,6 +46,30 @@
                         </form>
                     </div>
                 </div>
+
+                {{-- Applicant --}}
+                <div class="mt-4">
+                    <h4 class="text-lg font-semibold mb-2">Applicants</h4>
+                    @forelse($job->applicants as $applicant)
+                        <div class="py-2">
+                            <p class="text-gray-800"><strong>Name: </strong>{{ $applicant->full_name }}</p>
+                            <p class="text-gray-800"><strong>Phone Number: </strong>{{ $applicant->contact_phone }}</p>
+                            <p class="text-gray-800"><strong>Email: </strong>{{ $applicant->contact_phone }}</p>
+                            <p class="text-gray-800"><strong>Location: </strong>{{ $applicant->location }}</p>
+                            <p class="text-gray-800"><strong>Message: </strong>{{ $applicant->message }}</p>
+                            <p class="text-gray-800 my-4"><a href="{{ asset('storage/' . $applicant->resume_path) }}"
+                                    class="text-blue-500 hover:text-blue-600" download>
+                                    <i class="fas fa-download mr-3">
+                                        <span class="text-sm ml-1">Download Resume
+                                        </span>
+                                    </i>
+                                    </download></a>
+                            </p>
+                        </div>
+                    @empty
+                        <p class="text-gray-700">No applicant for this Job</p>
+                    @endforelse
+                </div>
             @empty
                 <p class="text-gray-700">No Jobs Listings</p>
             @endforelse
