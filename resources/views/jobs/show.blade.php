@@ -67,12 +67,14 @@
                                 class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
                                 <div @click.away="open = false" class="rounded-lg shadow-md w-full max-w-md bg-white p-6">
                                     <h3 class="text-lg font-semibod mb-4">Apply For {{ $job->title }}</h3>
-                                    <form action="" enctype="multipart/form-data">
+                                    <form method="POST" action="{{ route('applicant.store', $job->id) }}"
+                                        enctype="multipart/form-data">
                                         @csrf
                                         <x-inputs.text id="full_name" name="full_name" label="Full Name"
                                             :required="true" />
                                         <x-inputs.text id="contact_phone" name="contact_phone" label="Contact Phone" />
-                                        <x-inputs.text id="email" name="email" label="Email" :required="true" />
+                                        <x-inputs.text id="contact_email" name="contact_email" label="Email"
+                                            :required="true" />
 
                                         <x-inputs.text-area id="message" name="message" label="Message" />
 

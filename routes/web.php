@@ -8,6 +8,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BookmarkController;
+use App\Http\Controllers\ApplicantController;
 
 Route::middleware("guest")->group(function () {
     Route::get("/register", [RegisterController::class, "register"])->name("register");
@@ -17,13 +18,14 @@ Route::middleware("guest")->group(function () {
     Route::post("/login", [LoginController::class, "authenticate"])->name("login.authenticate");
 });
 
+Route::post("/logout", [LoginController::class, "logout"])->name("logout");
+
 Route::get('/', [HomeController::class, "index"])->name("home");
 
 // Route::resource("jobs", JobController::class);
 Route::resource("jobs", JobController::class)->middleware("auth")->only(["create", "edit", "update", "destroy"]);
 Route::resource("jobs", JobController::class)->except(["create", "edit", "update", "destroy"]);
 
-Route::post("/logout", [LoginController::class, "logout"])->name("logout");
 
 Route::middleware("auth")->group(function () {
     Route::get("/dashboard", [DashboardController::class, "index"])->name("dashboard");
@@ -33,4 +35,6 @@ Route::middleware("auth")->group(function () {
     Route::get("/bookmarks", [BookmarkController::class, "index"])->name("bookmarks.index");
     Route::post("/bookmarks/{job}", [BookmarkController::class, "store"])->name("bookmarks.store");
     Route::delete("/bookmarks/{job}", [BookmarkController::class, "destroy"])->name("bookmarks.destroy");
+
+    Route::post("/jobs/{job}/apply", [ApplicantController::class, "store"])->name("applicant.store");
 });
