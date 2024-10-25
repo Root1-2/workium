@@ -48,8 +48,8 @@
                 </div>
 
                 {{-- Applicant --}}
-                <div class="mt-4">
-                    <h4 class="text-lg font-semibold mb-2">Applicants</h4>
+                <div class="mt-1 bg-gray-100 p-3 rounded-lg">
+                    <h4 class="text-lg font-semibold">Applicants</h4>
                     @forelse($job->applicants as $applicant)
                         <div class="py-2">
                             <p class="text-gray-800"><strong>Name: </strong>{{ $applicant->full_name }}</p>
@@ -57,17 +57,23 @@
                             <p class="text-gray-800"><strong>Email: </strong>{{ $applicant->contact_phone }}</p>
                             <p class="text-gray-800"><strong>Location: </strong>{{ $applicant->location }}</p>
                             <p class="text-gray-800"><strong>Message: </strong>{{ $applicant->message }}</p>
-                            <p class="text-gray-800 my-4"><a href="{{ asset('storage/' . $applicant->resume_path) }}"
+                            <p class="text-gray-800 mt-4">
+                                <a href="{{ asset('storage/' . $applicant->resume_path) }}"
                                     class="text-blue-500 hover:text-blue-600" download>
-                                    <i class="fas fa-download mr-3">
-                                        <span class="text-sm ml-1">Download Resume
-                                        </span>
-                                    </i>
-                                    </download></a>
+                                    <i class="fas fa-download text-sm mr-1"></i>Download Resume
+                                </a>
                             </p>
+                            {{-- Delete Applicant --}}
+                            <form method="POST" action="{{ route('applicant.destroy', $applicant->id) }}"
+                                onsubmit="return confirm('Are you sure you want to delete this application?')">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="text-red-500 hover:text-red-700 text-sm"><i
+                                        class="fas fa-trash text-lg mr-1"></i>Delete Applicant</button>
+                            </form>
                         </div>
                     @empty
-                        <p class="text-gray-700">No applicant for this Job</p>
+                        <p class="text-gray-700 mb-5">No applicant for this Job</p>
                     @endforelse
                 </div>
             @empty
