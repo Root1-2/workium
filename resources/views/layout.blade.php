@@ -27,9 +27,9 @@
         @if (session('error'))
             <x-alert type="error" message="{{ session('error') }}" />
         @endif
-        {{-- @if (session('status'))
+        @if (session('status'))
             <x-alert type="status" message="{{ session('status') }}" />
-        @endif --}}
+        @endif
         {{ $slot }}
     </main>
 </body>
