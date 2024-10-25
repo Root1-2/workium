@@ -14,7 +14,7 @@ class BookmarkController extends Controller
     {
         $user = Auth::user();
 
-        $bookmarks = $user->bookmarkedJobs()->orderBy("job_user_bookmarks.created_at", "desc")->paginate(3);
+        $bookmarks = $user->bookmarkedJobs()->orderBy("job_user_bookmarks.created_at", "desc")->paginate(9);
 
         return view("jobs.bookmarks")->with("bookmarks", $bookmarks);
     }
