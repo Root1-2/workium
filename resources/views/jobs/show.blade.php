@@ -42,10 +42,10 @@
                 </div>
             </div>
 
-            <div class="container mx-auto p-4">
+            <div class="container mx-auto rounded-lg shadow-md bg-white p-4 mt-5">
                 @if ($job->requirements || $job->benefits)
                     <h2 class="text-xl font-semibold mb-4">Job Details</h2>
-                    <div class="rounded-lg shadow-md bg-white p-4">
+                    <div class="">
                         <h3 class="text-lg font-semibold mb-2 text-blue-500">Job Requirements</h3>
                         <p>
                             {{ $job->requirements }}
@@ -98,10 +98,6 @@
                         </p>
                     @endauth
                 @endif
-            </div>
-
-            <div class="bg-white p-6 rounded-lg shadow-md mt-6">
-                <div id="map"></div>
             </div>
         </section>
 
